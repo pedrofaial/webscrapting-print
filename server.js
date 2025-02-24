@@ -62,7 +62,8 @@ app.get('/', async (req, res) => {
 
 // Inicia o servidor
 app.listen(PORT, async () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`);
-  const open = (await import('open')).default;
-  await open(`http://localhost:${PORT}`); // Abre o navegador
+  console.log(`Servidor rodando na porta ${PORT}`);
+  // Removendo a linha que abre o navegador automaticamente
+  // const open = (await import('open')).default;
+  // await open(`http://localhost:${PORT}`); // Abre o navegador
 });
