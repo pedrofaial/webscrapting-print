@@ -19,7 +19,10 @@ if (!fs.existsSync(screenshotsDir)) {
 // Função que tira o print da página e salva em arquivo
 async function printScreen() {
   try {
-    const browser = await puppeteer.launch({ headless: false });
+    const browser = await puppeteer.launch({
+      headless: true, // Modo headless para ambientes de servidor
+      args: ['--no-sandbox', '--disable-setuid-sandbox'] // Argumentos necessários para ambientes de servidor
+    });
     const page = await browser.newPage();
 
     // Acessa a URL desejada
